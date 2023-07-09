@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Warehouse Management System</title>
+</head>
+<body>
+    <h1>Warehouse Management System</h1>
+    
+    <form id="warehouseForm">
+        <label for="name">Warehouse Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="location">Warehouse Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <button type="submit">Create Warehouse</button>
+    </form>
+
+    <script>
+        document.getElementById('warehouseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var location = document.getElementById('location').value;
+            alert(name + location);
+
+            // Create an object with the form data
+            var warehouseData = {
+                name: name,
+                location: location
+            };
+
+            // Send the data to the backend using an AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/warehouses', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onload = function() {
+                if (xhr.status === 201) {
+                    alert('Warehouse created successfully!');
+                    // Optionally, redirect to a different page or perform other actions
+                } else {
+                    alert('An error occurred while creating the warehouse.' + xhr.status );
+                }
+            };
+            xhr.send(JSON.stringify(warehouseData));
+        });
+    </script>
+</body>
+</html>
