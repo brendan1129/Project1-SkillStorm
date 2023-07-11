@@ -17,11 +17,11 @@ import com.skillstorm.Project1.models.Warehouse;
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
 
     // Custom query methods can be added here if needed
-    @Query("select * from warehouse where warehouse_location = :location")
-    public Optional<List<Warehouse>> findWarehousesByLocation(String location);
+    @Query("select w from Warehouse w where w.warehouseLocation = :location")
+    public Optional<List<Warehouse>> findByLocation(@Param("location") String location);
 
-    @Query("update Warehouse w set w.name = :new_name where id = :warehouse_id")
+    @Query(value = "update warehouse w set w.warehouse_name = :new_name where w.warehouse_id = :warehouse_id", nativeQuery = true)
     @Modifying
     @Transactional
-    public int updateWarehouseName(@Param("warehouse_id") long id, @Param("warehouse_name") String newName);
+    public int updateWarehouseName(@Param("warehouse_id") long id, @Param("new_name") String newName);
 }

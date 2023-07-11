@@ -1,7 +1,10 @@
-package com.skillstorm.Project1;
+package com.skillstorm.Project1.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.skillstorm.Project1.models.WarehouseItem;
+import com.skillstorm.Project1.repositories.WarehouseItemRepository;
 
 import java.util.List;
 import java.util.NoSuchElementException;

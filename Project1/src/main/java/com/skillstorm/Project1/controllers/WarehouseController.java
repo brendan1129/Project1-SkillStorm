@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,11 @@ import com.skillstorm.Project1.models.Warehouse;
 import com.skillstorm.Project1.services.WarehouseService;
 
 @RestController
+
 @RequestMapping("/warehouses")
+
+@CrossOrigin
+
 public class WarehouseController {
 
     @Autowired
@@ -32,16 +37,16 @@ public class WarehouseController {
     }
 
     @GetMapping("/warehouse/{warehouse_id}")
-    public ResponseEntity<Warehouse> findWarehouseById(@PathVariable long id) {
-        Warehouse warehouse = warehouseService.findWarehouseById(id);
-        return new ResponseEntity<Movie>(movie, HttpStatus.OK);
+    public ResponseEntity<Warehouse> findWarehouseById(@PathVariable("warehouse_id") long warehouse_id) {
+        Warehouse warehouse = warehouseService.findWarehouseById(warehouse_id);
+        return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
     }
 
 
     @GetMapping("/location/{warehouse_location}")
-    public ResponseEntity<List<Warehouse>> findWarehousesByLocation(@PathVariable String location) {
+    public ResponseEntity<List<Warehouse>> findWarehousesByLocation(@PathVariable("warehouse_location") String warehouse_location) {
 
-        List<Warehouse> warehouses = warehouseService.findWarehousesByLocation(location);
+        List<Warehouse> warehouses = warehouseService.findByLocation(warehouse_location);
 
         if(warehouses == null) {
             return ResponseEntity.noContent().build();

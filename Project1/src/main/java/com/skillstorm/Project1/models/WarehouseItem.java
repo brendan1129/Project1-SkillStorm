@@ -1,4 +1,4 @@
-package com.skillstorm.Project1;
+package com.skillstorm.Project1.models;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
