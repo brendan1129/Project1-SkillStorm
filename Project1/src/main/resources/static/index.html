@@ -34,6 +34,27 @@
                         </div>
                     </div>
                 </form>
+                <form id="delete-warehouse-form" action="#" style="display: none;">
+                    <div class="form-group">
+                        <label> Warehouse ID </label>
+                        <input id="delete-warehouse-id" name="delete-warehouse-id" type="text" class="form-control" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label>Warehouse Name</label>
+                        <input id="delete-warehouse-name" name="delete-warehouse-name" type="text" class="form-control" disabled/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="delete-warehouse-location">Warehouse Location</label>
+                        <input id="delete-warehouse-location" name="delete-warehouse-location" type="text" class="form-control" disabled/>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <button id="delete-cancel-button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input id="delete-button" name="delete-button" type="submit" value="Delete" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
             <div class="col-lg-6">
                 <table class="table table-primary table-hover">

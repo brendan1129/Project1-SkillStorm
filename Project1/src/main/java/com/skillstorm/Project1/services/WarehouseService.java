@@ -42,8 +42,11 @@ public class WarehouseService {
         return null;
     }
     public int updateWarehouseName(Warehouse warehouse, String newName) {
-        return warehouseRepository.updateWarehouseName(warehouse.getWarehouseId(), newName);
+        return warehouseRepository.updateWarehouseName(warehouse.getwarehouse_Id(), newName);
     }
-    // Other methods as needed
+    
+    public void deleteWarehouse(Warehouse warehouse) {
+        warehouseRepository.delete(warehouse);
+    }
 }
 
