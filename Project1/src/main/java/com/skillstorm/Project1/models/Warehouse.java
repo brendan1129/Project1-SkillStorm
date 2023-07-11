@@ -27,27 +27,39 @@ public class Warehouse {
     public Warehouse() {
         
     }
-    public Long getWarehouseId() {
+
+    public Warehouse(String name, String location) {
+        this.warehouseName = name;
+        this.warehouseLocation = location;
+    }
+
+    public Warehouse(long id, String name, String location) {
+        this.warehouseId = id;
+        this.warehouseName = name;
+        this.warehouseLocation = location;
+    }
+
+    public Long getwarehouse_Id() {
         return warehouseId;
     }
 
-    public void setWarehouseId(Long warehouseId) {
+    public void setwarehouse_Id(Long warehouseId) {
         this.warehouseId = warehouseId;
     }
 
-    public String getWarehouseName() {
+    public String getwarehouse_Name() {
         return warehouseName;
     }
 
-    public void setWarehouseName(String warehouseName) {
+    public void setwarehouse_Name(String warehouseName) {
         this.warehouseName = warehouseName;
     }
 
-    public String getWarehouseLocation() {
+    public String getwarehouse_Location() {
         return warehouseLocation;
     }
 
-    public void setWarehouseLocation(String warehouseLocation) {
+    public void setwarehouse_Location(String warehouseLocation) {
         this.warehouseLocation = warehouseLocation;
     }
     @Override

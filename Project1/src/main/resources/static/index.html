@@ -17,20 +17,41 @@
 <body>
     <div class="container-fluid">
     <h1>Warehouse Management System</h1>
-
-    <div class="col-lg-2">
-        <table class="table table-primary table-hover">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                </tr>
-            </thead>
-            <tbody id="warehouse-tbody">
-                <!-- Add rows through JS -->
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col-lg-6">
+                <form id="new-warehouse-form" action="#">
+                    <div class="form-group"> 
+                        <label>Warehouse Name</label>
+                        <input id="new-warehouse-name" name="new-warehouse-name" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group"> 
+                        <label>Warehouse Location</label>
+                        <input id="new-warehouse-location" name="new-warehouse-location" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <div class ="mb-4">
+                        <input id="save-button" name="save-button" type="submit" value = "Save" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <table class="table table-primary table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="warehouse-tbody">
+                        <!-- Add rows through JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
        

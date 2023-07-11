@@ -2,6 +2,8 @@ package com.skillstorm.Project1.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -56,8 +58,12 @@ public class WarehouseController {
 
     }
     @PostMapping("/warehouse")
-    public ResponseEntity<Warehouse> createWarehouse(@RequestBody Warehouse warehouse) {
+    public ResponseEntity<Warehouse> createWarehouse(@Valid @RequestBody Warehouse warehouse) {
         //System.out.println(warehouse.getWarehouseName());
+        if (warehouse.getwarehouse_Name() == null || warehouse.getwarehouse_Location() == null) {
+            // Return a response indicating missing fields
+            return ResponseEntity.badRequest().build();
+        }
         Warehouse w = warehouseService.saveWarehouse(warehouse);
         return new ResponseEntity<Warehouse>(w, HttpStatus.CREATED);
     }
