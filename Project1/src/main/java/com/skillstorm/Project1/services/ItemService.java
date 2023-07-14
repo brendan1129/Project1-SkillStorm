@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.Project1.models.Item;
-import com.skillstorm.Project1.models.Warehouse;
 import com.skillstorm.Project1.repositories.ItemRepository;
 
 import java.util.List;
@@ -13,12 +12,8 @@ import java.util.NoSuchElementException;
 @Service
 public class ItemService {
 
-    private final ItemRepository itemRepository;
-
     @Autowired
-    public ItemService(ItemRepository itemRepository) {
-        this.itemRepository = itemRepository;
-    }
+    ItemRepository itemRepository;
 
     public Item saveItem(Item item) {
         return itemRepository.save(item);

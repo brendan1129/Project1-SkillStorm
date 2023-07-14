@@ -13,6 +13,41 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "item")
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "item_id")
+    private Long itemId;
+
+    @NotEmpty
+    @Column(name = "item_name")
+    private String itemName;
+
+    @NotEmpty
+    @Column(name = "item_description")
+    private String itemDescription;
+
+    @NotNull
+    @Column(name = "unit_price")
+    @Min(value = 0, message = "Unit price must be greater than zero")
+    private Double unitPrice;
+
+
+    public Item() {
+        
+    }
+
+    public Item(String name, String description, double price) {
+        this.itemName = name;
+        this.itemDescription = description;;
+        this.unitPrice = price;
+    }
+
+    public Item(long id, String name, String description, double price) {
+        this.itemId = id;
+        this.itemName = name;
+        this.itemDescription = description;
+        this.unitPrice = price;
+    }
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -55,24 +90,6 @@ public class Item {
             return false;
         return true;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_id")
-    private Long itemId;
-
-    @NotEmpty
-    @Column(name = "item_name")
-    private String itemName;
-
-    @NotEmpty
-    @Column(name = "item_description")
-    private String itemDescription;
-
-    @NotNull
-    @Column(name = "unit_price")
-    @Min(value = 0, message = "Unit price must be greater than zero")
-    private Double unitPrice;
 
     public Long getitem_Id() {
         return itemId;

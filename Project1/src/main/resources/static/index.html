@@ -13,7 +13,7 @@
     <h1>Warehouse Management System</h1>
         <button id="warehouse-button" class="btn btn-primary">Warehouse</button>
         <button id="item-button" class="btn btn-primary">Item</button>
-        <button id="warehouse_item-button" class="btn btn-primary">Warehouse Item</button>
+        <button id="warehouse-item-button" class="btn btn-primary">Warehouse Item</button>
         <div class="row">
             <!-- Warehouse Form View -->
             <div class="col-lg-6" id="warehouse-form-view" style="display: block; position: absolute; top: 20vh;">
@@ -120,14 +120,13 @@
                         <input id="update-item-price" name="update-item-price" type="text" class="form-control" />
                     </div>
                     <div class="form-group" style="padding-top: 20px">
-                        <button id="item-update-cancel-button" class="btn btn-secondary">Cancel</button>
+                        <button id="update-item-cancel-button" class="btn btn-secondary">Cancel</button>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <input id="item-update-button" name="item-update-button" type="submit" value="Update" class="btn btn-primary" />
                     </div>
                     <div id="update-item-error-message" style="display: none; color: red;"></div>
                 </form>
-
                 <form id="delete-item-form" action="#" style="display: none;">
                     <div class="form-group">
                         <label>Item ID</label>
@@ -144,16 +143,91 @@
                     </div>
                     <div class="form-group">
                         <label>Unit Price</label>
-                        <input id="delete-item-price" name="delete-item-price" type="text" class="form-control" />
+                        <input id="delete-item-price" name="delete-item-price" type="text" class="form-control" disabled/>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
-                        <button id="item-delete-cancel-button" class="btn btn-secondary">Cancel</button>
+                        <button id="delete-item-cancel-button" class="btn btn-secondary">Cancel</button>
                     </div>
                     <div class="form-group" style="padding-top: 20px">
                         <input id="item-delete-button" name="item-delete-button" type="submit" value="Delete" class="btn btn-primary" />
                     </div>
                 </form>
             </div>
+            <!-- Warehouse Item Form View -->
+            <div class="col-lg-6" id="warehouse-item-form-view" style="display: none; position: absolute; top: 20vh;">
+                <form id="new-warehouse-item-form" action="#">
+                    <div class="form-group">
+                        <label>Warehouse ID</label>
+                        <input id="new-warehouse-item-w-id" name="new-warehouse-item-w-id" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Item ID</label>
+                        <input id="new-warehouse-item-i-id" name="new-warehouse-item-i-id" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group"> 
+                        <label>Quantity</label>
+                        <input id="new-warehouse-item-quantity" name="new-warehouse-item-quantity" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <div class ="mb-4">
+                        <input id="item-warehouse-save-button" name="item-warehouse-save-button" type="submit" value = "Save" class="btn btn-primary" />
+                        </div>
+                    </div>
+                    <!-- For front-end validation -->
+                    <div id="new-warehouse-item-error-message" style="display: none; color: red;"></div>
+                </form>
+                <form id="update-warehouse-item-form" action="#" style="display: none;">
+                    <div class="form-group">
+                        <label>Warehouse Item ID</label>
+                        <input id="update-warehouse-item-id" name="update-warehouse-item-id" type="text" class="form-control" disabled />
+                    </div>
+                    <div class="form-group">
+                        <label>Warehouse ID</label>
+                        <input id="update-warehouse-item-w-id" name="update-warehouse-item-w-id" type="text" class="form-control"  />
+                    </div>
+                    <div class="form-group"> 
+                        <label>Item Id</label>
+                        <input id="update-warehouse-item-i-id" name="update-warehouse-item-i-id" type="text" class="form-control"  />
+                    </div>
+                    <div class="form-group"> 
+                        <label>Quantity</label>
+                        <input id="update-warehouse-item-quantity" name="update-warehouse-item-quantity" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <button id="update-warehouse-item-cancel-button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input id="warehouse-item-update-button" name="warehouse-item-update-button" type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                    <div id="update-warehouse-item-error-message" style="display: none; color: red;"></div>
+                </form>
+                <form id="delete-warehouse-item-form" action="#" style="display: none;">
+                    <div class="form-group">
+                        <label>Warehouse Item ID</label>
+                        <input id="delete-warehouse-item-id" name="delete-warehouse-item-id" type="text" class="form-control" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label>Warehouse ID</label>
+                        <input id="delete-warehouse-item-w-id" name="delete-warehouse-item-w-id" type="text" class="form-control" disabled/>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Item ID</label>
+                        <input id="delete-warehouse-item-i-id" name="delete-warehouse-item-i-id" type="text" class="form-control" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity</label>
+                        <input id="delete-warehouse-item-quantity" name="delete-warehouse-item-quantity" type="text" class="form-control" disabled/>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <button id="delete-warehouse-item-cancel-button" class="btn btn-secondary">Cancel</button>
+                    </div>
+                    <div class="form-group" style="padding-top: 20px">
+                        <input id="warehouse-item-delete-button" name="warehouse-item-delete-button" type="submit" value="Delete" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+
             <!-- Warehouse Table View -->
             <div class="col-lg-6" id="warehouse-table-view" style="display: block; position: absolute; top: 20vh; left: 50vw;">
                 <table class="table table-primary table-hover">
@@ -185,6 +259,24 @@
                         </tr>
                     </thead>
                     <tbody id="item-tbody">
+                        <!-- Add rows through JS -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Warehouse Item Table View -->
+            <div class="col-lg-6" id="warehouse-item-table-view" style="display: none; position: absolute; top: 20vh; left: 50vw;">
+                <table class="table table-primary table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Warehouse ID</th>
+                            <th>Item ID</th>
+                            <th>Quantity</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="warehouse-item-tbody">
                         <!-- Add rows through JS -->
                     </tbody>
                 </table>

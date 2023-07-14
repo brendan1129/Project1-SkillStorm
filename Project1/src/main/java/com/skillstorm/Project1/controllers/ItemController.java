@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.Project1.models.Item;
-import com.skillstorm.Project1.models.Warehouse;
 import com.skillstorm.Project1.services.ItemService;
 
 @RestController
@@ -44,12 +43,12 @@ public class ItemController {
         return new ResponseEntity<Item>(i, HttpStatus.CREATED);
     }
     @PutMapping("/item")
-    public ResponseEntity<Item> updateWarehouse(@RequestBody Item item) {
+    public ResponseEntity<Item> updateItem(@RequestBody Item item) {
         Item i = itemService.saveItem(item);
         return new ResponseEntity<Item>(i, HttpStatus.OK);
     }
     @DeleteMapping("/item") 
-    public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Item item) {
+    public ResponseEntity<Item> deleteItem(@RequestBody Item item) {
         
         itemService.deleteItem(item);
         return ResponseEntity.noContent().build();

@@ -38,25 +38,10 @@ public class WarehouseController {
 
         return new ResponseEntity<List<Warehouse>>(warehouses, HttpStatus.OK);
     }
-
     @GetMapping("/warehouse/{warehouse_id}")
     public ResponseEntity<Warehouse> findWarehouseById(@PathVariable("warehouse_id") long warehouse_id) {
         Warehouse warehouse = warehouseService.findWarehouseById(warehouse_id);
         return new ResponseEntity<Warehouse>(warehouse, HttpStatus.OK);
-    }
-
-
-    @GetMapping("/location/{warehouse_location}")
-    public ResponseEntity<List<Warehouse>> findWarehousesByLocation(@PathVariable("warehouse_location") String warehouse_location) {
-
-        List<Warehouse> warehouses = warehouseService.findByLocation(warehouse_location);
-
-        if(warehouses == null) {
-            return ResponseEntity.noContent().build();
-        }
-
-        return new ResponseEntity<List<Warehouse>>(warehouses, HttpStatus.OK);
-
     }
     @PostMapping("/warehouse")
     public ResponseEntity<Warehouse> createWarehouse(@Valid @RequestBody Warehouse warehouse) {
@@ -74,14 +59,6 @@ public class WarehouseController {
         Warehouse w = warehouseService.saveWarehouse(warehouse);
         return new ResponseEntity<Warehouse>(w, HttpStatus.OK);
     }
-
-    @PutMapping("/warehouse/updateName") 
-    public ResponseEntity<Integer> updateWarehouseName(@RequestBody Warehouse warehouse, @RequestParam String newName) {
-        
-        int updated = warehouseService.updateWarehouseName(warehouse, newName);
-        return new ResponseEntity<Integer>(updated, HttpStatus.OK);
-    }
-
     @DeleteMapping("/warehouse") 
     public ResponseEntity<Warehouse> deleteWarehouse(@RequestBody Warehouse warehouse) {
         

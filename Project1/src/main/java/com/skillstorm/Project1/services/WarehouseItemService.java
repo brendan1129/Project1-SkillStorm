@@ -12,25 +12,22 @@ import java.util.NoSuchElementException;
 @Service
 public class WarehouseItemService {
 
-    private final WarehouseItemRepository warehouseItemRepository;
-
     @Autowired
-    public WarehouseItemService(WarehouseItemRepository warehouseItemRepository) {
-        this.warehouseItemRepository = warehouseItemRepository;
-    }
+    WarehouseItemRepository warehouseItemRepository;
 
     public WarehouseItem saveWarehouseItem(WarehouseItem warehouseItem) {
         return warehouseItemRepository.save(warehouseItem);
     }
 
-    public List<WarehouseItem> getAllWarehouseItems() {
+    public List<WarehouseItem> findAll() {
         return warehouseItemRepository.findAll();
     }
 
-    public WarehouseItem getWarehouseItemById(Long id) {
+    public WarehouseItem getItemById(Long id) {
         return warehouseItemRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("WarehouseItem not found"));
+                .orElseThrow(() -> new NoSuchElementException("Warehouse Item not found"));
     }
-
-    // Other methods as needed
+    public void deleteItem(WarehouseItem warehouseItem) {
+        warehouseItemRepository.delete(warehouseItem);
+    }
 }
