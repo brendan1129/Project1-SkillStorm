@@ -19,6 +19,20 @@ public class WarehouseService {
         return warehouseRepository.save(warehouse);
     }
 
+    public Warehouse updateWarehouse(Warehouse updatedWarehouse) {
+        // Retrieve the existing warehouse from the database using its ID
+        Optional<Warehouse> existingWarehouse = warehouseRepository.findById(updatedWarehouse.getwarehouse_Id());
+
+        // Update the attributes of the existing warehouse
+        if(existingWarehouse.isPresent()){
+        Warehouse w = existingWarehouse.get();
+        w.setwarehouse_Name(updatedWarehouse.getwarehouse_Name());
+        w.setwarehouse_Location(updatedWarehouse.getwarehouse_Location());
+        return w;
+        }
+        // Save the modified warehouse back to the database
+        return null;
+    }
     public List<Warehouse> findAllWarehouses() {
         return warehouseRepository.findAll();
     }

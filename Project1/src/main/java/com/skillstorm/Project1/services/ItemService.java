@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.Project1.models.Item;
+import com.skillstorm.Project1.models.Warehouse;
 import com.skillstorm.Project1.repositories.ItemRepository;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public List<Item> getAllItems() {
+    public List<Item> findAll() {
         return itemRepository.findAll();
     }
 
@@ -31,6 +32,8 @@ public class ItemService {
         return itemRepository.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Item not found"));
     }
-
+    public void deleteItem(Item item) {
+        itemRepository.delete(item);
+    }
     // Other methods as needed
 }
