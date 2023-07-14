@@ -6,7 +6,7 @@ let allItems = [];
 let allWarehouseItems = [];
 /* Generate HTTP GET request with the URL where the database is being hosted.
 If the readyState of the request is 4 ( Content Loaded ), then we parse in a JSON object
-that represents all current Warehouses in the DB and adds them to the front-end table. */
+and add it to the front-end table. */
 document.addEventListener('DOMContentLoaded', () => {
 //waits for the HTML document to be fully loaded before executing the provided callback function
     let xhr = new XMLHttpRequest();
@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     xhr.send();
 });
+/* Toggle between warehouse, item, and warehouse item pages */
 document.getElementById('warehouse-button').addEventListener('click', (event) => {
     resetAllPages(1);
 });
@@ -353,7 +354,7 @@ document.getElementById('update-warehouse-item-cancel-button').addEventListener(
     event.preventDefault();
     resetAllWarehouseItemForms();
 });
-/* Sets the new warehouse form to visible and all other key elements are made invisible */
+/* Sets the new  form to visible and all other key elements are made invisible */
 function resetAllWarehouseForms() {
 
     // clears data from all forms
@@ -396,6 +397,7 @@ function resetAllWarehouseItemForms() {
     document.getElementById('update-warehouse-item-error-message').style.display = 'none';
     document.getElementById('delete-warehouse-item-form').style.display = 'none'; 
 }
+/* Reset warehouse, item, and warehouse-item forms */
 function resetAllPages(option) {
     if(option == 1) {
         document.getElementById('warehouse-form-view').style.display = 'block';
@@ -422,6 +424,7 @@ function resetAllPages(option) {
         document.getElementById('warehouse-item-table-view').style.display = 'block';
     }
 }
+/* For loading up the candidate entity to be edited */
 function activateWarehouseEditForm(w_Id) {
     for(let w of allWarehouses) {
         if(w.warehouse_Id == w_Id) {
@@ -465,6 +468,7 @@ function activateWarehouseItemEditForm(i_Id) {
     document.getElementById('update-warehouse-item-error-message').style.display = 'none';
     document.getElementById('delete-warehouse-item-form').style.display = 'none';   // block is the default for showing a tag
 }
+/* For loading up the candidate entity to be deleted */
 function activateWarehouseDeleteForm(w_Id) {
     // find the warehouse and its <tr> that needs to be edited
     for(let w of allWarehouses) {
@@ -521,6 +525,7 @@ function activateWarehouseItemDeleteForm(wi_Id) {
     document.getElementById('delete-warehouse-item-form').style.display = 'block';   // block is the default for showing a tag
    
 }
+/* Event handlers for edit/delete submission. Performs a put or a delete request depending on the situation */
 document.getElementById('update-warehouse-form').addEventListener('submit', (event) => {
     event.preventDefault();
     let inputData = new FormData(document.getElementById('update-warehouse-form'));
@@ -838,6 +843,7 @@ document.getElementById('delete-warehouse-item-form').addEventListener('submit',
     })
 
 });
+/* Find the entry in the table with corresponding ID and update it's values */
 function updateWarehouseInTable(warehouse) {
     document.getElementById('warehouseTR' + warehouse.warehouse_Id).innerHTML = `
     <td>${warehouse.warehouse_Id}</td>
@@ -899,6 +905,7 @@ function updateWarehouseItemInTable(warehouseItem) {
         }
     }
 }
+/* Find the entry in the table with corresponding ID and delete the row */
 function removeWarehouseFromTable(warehouse) {
 
     // removing the <tr> from the table when a warehouse gets deleted
@@ -916,6 +923,7 @@ function removeWarehouseItemFromTable(warehouseItem) {
     const element = document.getElementById('warehouseItemTR' + warehouseItem.warehouse_Item_Id);
     element.remove();
 }
+/* Utility functions for validation checks */
 function displayWarehouseErrorMessage(message, option) {
     if(option == 1) {
         let errorElement = document.getElementById('new-warehouse-error-message');

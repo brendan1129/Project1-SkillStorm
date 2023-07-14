@@ -27,6 +27,9 @@ import com.skillstorm.Project1.services.WarehouseItemService;
 
 @CrossOrigin
 public class WarehouseItemController {
+
+    /* Handle GET, POST, PUT and DELETE Requests using warehouseItemService */
+
     @Autowired
     WarehouseItemService warehouseItemService;
 

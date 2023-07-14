@@ -16,7 +16,9 @@ import com.skillstorm.Project1.models.Warehouse;
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
     
+    // Repository class for CRUD operations to be implemented by WarehouseService
     // Custom query methods can be added here if needed
+    // Below are not used
     @Query("select w from Warehouse w where w.warehouseLocation = :location")
     public Optional<List<Warehouse>> findByLocation(@Param("location") String location);
 

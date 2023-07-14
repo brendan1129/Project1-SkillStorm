@@ -12,6 +12,8 @@ import com.skillstorm.Project1.repositories.WarehouseRepository;
 @Service
 public class WarehouseService {
 
+    // Service class for defining the sepecific behavior of each warehouse repository query
+
     @Autowired
     WarehouseRepository warehouseRepository;
 
