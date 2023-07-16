@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 @Service
 public class WarehouseItemService {
 
+    // Service class for defining the sepecific behavior of each warehouse item repository query
     @Autowired
     WarehouseItemRepository warehouseItemRepository;
 

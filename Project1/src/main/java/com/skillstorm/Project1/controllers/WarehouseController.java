@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.Project1.models.Warehouse;
@@ -29,15 +28,19 @@ import com.skillstorm.Project1.services.WarehouseService;
 
 public class WarehouseController {
 
+    /* Handle GET, POST, PUT and DELETE Requests using warehouseService */
+
     @Autowired
     WarehouseService warehouseService;
 
+    // Get Mapping tells Spring we are going to respond to GET requests with the following method
     @GetMapping
     public ResponseEntity<List<Warehouse>> findAllWarehouses() {
         List<Warehouse> warehouses = warehouseService.findAllWarehouses();
 
         return new ResponseEntity<List<Warehouse>>(warehouses, HttpStatus.OK);
     }
+
     @GetMapping("/warehouse/{warehouse_id}")
     public ResponseEntity<Warehouse> findWarehouseById(@PathVariable("warehouse_id") long warehouse_id) {
         Warehouse warehouse = warehouseService.findWarehouseById(warehouse_id);

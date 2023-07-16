@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "warehouse_item")
 public class WarehouseItem {
 
+    /* Entity class specifying the columns of the warehouse_item table */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouse_item_id")

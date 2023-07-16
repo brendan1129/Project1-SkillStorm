@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 @Service
 public class ItemService {
 
+    // Service class for defining the sepecific behavior of each item repository query
     @Autowired
     ItemRepository itemRepository;
 

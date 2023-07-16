@@ -11,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "warehouse")
 public class Warehouse {
+
+    /* Entity class specifying the columns of the warehouse table */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "warehouse_id")

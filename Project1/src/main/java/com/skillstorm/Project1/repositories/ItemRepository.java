@@ -9,5 +9,5 @@ import com.skillstorm.Project1.models.Item;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
     // Custom query methods can be added here if needed
-
+    // Repository class for CRUD operations to be implemented by ItemService
 }

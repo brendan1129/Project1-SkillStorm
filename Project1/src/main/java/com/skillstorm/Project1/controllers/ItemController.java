@@ -27,6 +27,7 @@ import com.skillstorm.Project1.services.ItemService;
 
 public class ItemController {
 
+    /* Handle GET, POST, PUT and DELETE Requests using itemService */
     @Autowired
     ItemService itemService;
 

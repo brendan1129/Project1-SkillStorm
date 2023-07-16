@@ -13,6 +13,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "item")
 public class Item {
+
+    /* Entity class specifying the columns of the item table */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
